@@ -1,7 +1,14 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<h1>Apple - 1984</h1>
+	<ol class="breadcrumb">
+		<li><a href="/">Home</a></li>
+		<li><a href="/videos">Videos</a></li>
+		<li><a href="/videos/{{ video.id }}">{{ video.name }}</a></li>
+		<li class="active">Results</li>
+	</ol>
+
+	<h1>Results</h1>
 
 	<table class="table table-hover">
 		<thead>
@@ -14,12 +21,14 @@
 		</thead>
 
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td><a href="/videos/1/results/1">Alex Forbes-Reed</a></td>
-				<td>73%</td>
-				<td>22%</td>
-			</tr>
+			{% for result in results %}
+				<tr>
+					<td>{{ result.id }}</td>
+					<td><a href="/videos/{{ video.id }}/results/{{ result.id }}">{{ result.audience }}</a></td>
+					<td>{{ result.avg.concentration * 100 | int }}%</td>
+					<td>{{ result.avg.mellowness * 100 | int }}%</td>
+				</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 {% endblock %}

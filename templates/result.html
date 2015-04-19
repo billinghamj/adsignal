@@ -4,12 +4,12 @@
 	<ol class="breadcrumb">
 		<li><a href="/">Home</a></li>
 		<li><a href="/videos">Videos</a></li>
-		<li><a href="/videos/1">Apple - 1984</a></li>
-		<li><a href="/videos/1/results">Results</a></li>
-		<li class="active">Alex Forbes-Reed</li>
+		<li><a href="/videos/{{ video.id }}">{{ video.name }}</a></li>
+		<li><a href="/videos/{{ video.id }}/results">Results</a></li>
+		<li class="active">{{ result.audience }}</li>
 	</ol>
 
-	<h1>Alex Forbes-Reed</h1>
+	<h1>{{ result.audience }}</h1>
 
 	<p>
 		Concentration: {{ result.avg.concentration * 100 | int }}%<br />
