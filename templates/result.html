@@ -10,6 +10,11 @@
 	</ol>
 
 	<h1>Alex Forbes-Reed</h1>
+
+	<p>
+		Concentration: {{ result.avg.concentration * 100 | int }}%<br />
+		Mellowness: {{ result.avg.mellowness * 100 | int }}%
+	</p>
 {% endblock %}
 
 {% block end %}
