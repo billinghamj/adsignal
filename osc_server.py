@@ -57,7 +57,7 @@ def signal_handler(signal, frame):
         dictionary['data'] = master
 
         json_ = json.dumps(dictionary)
-        text_file = open("data.json", "w")
+        text_file = open("data/" + sys.argv[1] + ".json", "w")
         text_file.write(json_)
         text_file.close()
 
