@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import json
 app = Flask(__name__)
 
 @app.route("/")
@@ -23,7 +24,8 @@ def show_results(video_id):
 
 @app.route("/videos/<int:video_id>/results/<int:result_id>/")
 def show_result(video_id, result_id):
-	return render_template('result.html')
+	file = open('./data/videos/' + str(video_id) + '/results/' + str(result_id) + '/data.json', 'r')
+	return render_template('result.html', result=json.load(file))
 
 if __name__ == "__main__":
 	app.run(debug=True)
